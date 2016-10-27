@@ -4,6 +4,10 @@ namespace Vsite.CSharp
 {
     class Bazna
     {
+        public Bazna()
+        {
+            A = 5;
+        }
         protected Bazna(int a) // konstruktor je protected!
         {
             A = a;
@@ -13,11 +17,16 @@ namespace Vsite.CSharp
         public readonly int A;
     }
 
-    class Izvedena // : Bazna
+    class Izvedena  : Bazna
     {
-        public Izvedena()
+        public Izvedena():this(3,5)
         {
             Console.WriteLine(string.Format("Izvedena.Izvedena()"));
+        }
+        public Izvedena(int a, int b):base(a)
+        {
+            B = b;
+            Console.WriteLine(string.Format("Izvedena.Izvedena({0}, {1})", a, b));
         }
 
         public readonly int B;
@@ -27,16 +36,21 @@ namespace Vsite.CSharp
     {
         public static void StvoriInstancuBazneKlase()
         {
-            // TODO: Stvoriti instancu klase Bazna i ispisati vrijednost člana A.
-
+            //  Stvoriti instancu klase Bazna i ispisati vrijednost člana A.
+            Bazna b = new Bazna();
+            Console.WriteLine(b.A);
         }
 
         public static void StvoriInstancuIzvedeneKlasePraznimKonstruktorom()
         {
-            // TODO: Promijeniti klasu Izvedena tako da je izvedena iz klase Bazna. Provjeriti da li se kod prevodi te napraviti potrebne promjene u klasi Izvedena.
-            // TODO: Stvoriti instancu klase Izvedena pozivom podrazumijevanog konstruktora.
+            //  Promijeniti klasu Izvedena tako da je izvedena iz klase Bazna. Provjeriti da li se kod prevodi te napraviti potrebne promjene u klasi Izvedena.
 
-            // TODO: Ispisati vrijednosti članova A i B stvorenog objekta.
+            //  Stvoriti instancu klase Izvedena pozivom podrazumijevanog konstruktora.
+            Izvedena i = new Izvedena();
+
+            //  Ispisati vrijednosti članova A i B stvorenog objekta.
+            Console.WriteLine(i.A);
+            Console.WriteLine(i.B);
 
         }
 
@@ -46,6 +60,9 @@ namespace Vsite.CSharp
             // U tijelo konstruktora dodati naredbu za ispis: Console.WriteLine(string.Format("Izvedena.Izvedena({0}, {1})", a, b));
 
             // TODO: Stvoriti objekt pozivom tog konstruktora i ispisati vrijednosti članova A i B stvorenog objekta.
+            Izvedena i = new Izvedena(5, 3);
+            Console.WriteLine(i.A);
+            Console.WriteLine(i.B);
 
 
             // TODO: Promijeniti prazni konstruktor klase Izvedena tako da delegira poziv konstruktora s dva argumenta.
