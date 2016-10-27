@@ -7,8 +7,6 @@ namespace Vsite.CSharp
         //  Dodati privatno polje (podatkovni član) "broj" tipa int i dodijeliti mu vrijednost 5
         int broj = 5;
 
-
-
         //  U metodu IspišiČlan dodati naredbu koja će ispisati podatkovni član "broj".
         public void IspišiČlan()
         {
